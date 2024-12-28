@@ -1,0 +1,181 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	color: white;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#bg {
+	background-image: url('./bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	z-index: -3;
+}
+
+#overlay {
+	background-color: rgba(0, 0, 0, 0);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.ready #vinyl-container {
+	top: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 2s ease-in-out;
+}
+#vinyl-container {
+	position: absolute;
+	top: 100vh;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 100vmin;
+	height: 100vmin;
+	transition: all 2s ease-in-out;
+}
+
+#vinyl {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80vmin;
+	height: 80vmin;
+	transform: translate(-50%, -50%);
+	background-image: url('./vinyl.svg');
+	background-size: cover;
+	z-index: 3;
+}
+
+#logo-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50vmin;
+	height: 50vmin;
+	transform: translate(-50%, -50%);
+	z-index: 5;
+}
+
+#logo {
+	width: 100%;
+	height: 100%;
+	background-image: url('./logo.png');
+	background-size: cover;
+	z-index: 5;
+	clip-path: circle(40% at 50% 50%);
+}
+.ready #logo {
+	animation: spin 10s linear 2s infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.ready #top {
+	position: absolute;
+	/* top: calc(25vh - 20vmin); */
+	top: -100%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-weight: 900;
+	transition: all 1.5s ease-in-out;
+	opacity: 0;
+	filter: blur(16px);
+}
+#top {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: 24px;
+	font-weight: 900;
+	z-index: 10;
+	transition: all 1.5s ease-in-out;
+}
+
+#button {
+	display: inline-block;
+	margin-top: 20vmin;
+	cursor: pointer;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADtUlEQVR4nO2aS29NURTHj3i0QuhTb4wYSgVfAvWo10wxIzrRNmXqMcZI0sTnQCMMShPEo2gTUdUaoQPBTFVa+cnq/e/Y4dx77j13Hz3EP7m5J3ftsx57r7X32mvdKPqPfxRAE3AAuAQMAq+Az8A3fex5XDQbsx9ojPIAoB44BtwGvlM95oFbwFGgbjEMWAmcBqY9pWaBIeCsVmaTzTiwXJ9G/Wa0c8AdvePwHui3yflTRuwB3ngKPAGOA2tT8GoATgAjHr8pYFfWbnTVE/gU2BGQfwfw3OM/EHx1gIIUN3wBTgFLgwopylkK9AIz3mq3hWK+UcuNdp3NQRiXl7kFmJDMSdOhVoatHsPHQEswbZNlNwL3JNtislBLTDh3egCsCq5tsg6rgIeem1UfM15gmzs1ZaJpZXo0e14xkGaLdYGdeUxUGDMz0qmjmsPOnROnopwA6POCP9nFgDPeORF8i00LYBkwKt36kgbXKVUwbI9yBmC3dJsuuypK3hZ2iCiHAJZ4O2lXuYGWxRqOB8wIRuQShUA8T0rHm+XuE/PKSKtOAEsYYVu3w3gIYygelHa/mYvVU+m1YSiwEeO/PIcw5q747YsjXhbxbGAjCnG/1SjjgnhdjCMOlrSycgFtwAvxsavueo+2zqNN+LQUcg6Kz7U44msRN6VknjjroVYGaHeTFUf8JGJTyJWIGVvzygAtev9DHNF2AsOKrIwIZQzFg9swG8SQNEaEMIYEQ6pyrVqMqNUYihe+kq5VVbADYyG20182gNEQwX5DxP0VMnukqkeIA66gNOZhiO3XHYjnopyDhAMxWIqSNYBh6bq3VDLmksaGKKegmNy6pHFNqUFWUDaciHIKoFs6DpYbdESDRqL8XqyeScfDSQfNOw3cGeUMwF7p9jaxDaHSPrI8b8WHMenWU2mF0dV6e6OcgJ8TPFFxU8j6E3rJimJbMtcyWZ9twFfpVF0rQ/0JNwPNmWlZWV41KV2upGFQr8IxKiQvRhF7tVIh9F1Xy2xYZuvaCq3BtS1/8N2X7KmaGz5q9Ex6brY1mLblY2JSMi0r3xCKcZvnZjMqKC8Lwvz3LbbfC2xzp3WhhdR7G8DC3SFU91UntrUy3DmxENiZ9t7VfXXLjmqxJ9P8i0Fx0O2lHc6VgnWLK1mdPi+dQRmppdfndfFpV7dphT72vBk4pDHDXp3ApR09i/UPCMvNuqygrCtAtZhTYfDwohgQBysoA512awOu6x7+0ftTjT2/tOupxnSWvE/8R/T34wdWz7cYqTkpQgAAAABJRU5ErkJggg==');
+	background-size: cover;
+	width: 36px;
+	height: 36px;
+}
+
+#bottom {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	text-align: center;
+	font-size: 12px;
+	width: 100vw;
+	padding: 8px;
+	box-sizing: border-box;
+	transition: all 0.3s ease-in-out;
+	z-index: 15;
+	opacity: 0.75;
+	transition: all 0.3s ease-in-out;
+}
+.ready #bottom {
+	opacity: 0.5;
+	background-color: transparent;
+	backdrop-filter: none;
+	transition: all 0.3s ease-in-out;
+}
+#bottom:active {
+	opacity: 1;
+	background-color: rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(10px);
+	transition: all 0.3s ease-in-out;
+}
+
+a, a:visited, a:hover, a:active {
+	color: white;
+	text-decoration: none;
+	border-bottom: 1px solid white;
+}
+
+#cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('./bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	z-index: 5;
+	filter: url(#distortion) contrast(1.2) brightness(0.7);
+	transition: all 2s ease-in;
+}
+
+.ready #cover {
+	opacity: 0;
+	transition: all 2s ease-in;
+}
+
+#audio {
+	display: none;
+}

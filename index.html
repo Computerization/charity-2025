@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FM Charity</title>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<div id="bg"></div>
+	<div id="overlay"></div>
+	<div id="vinyl-container">
+		<div id="vinyl"></div>
+		<div id="logo-container">
+			<div id="logo"></div>
+		</div>
+	</div>
+	<div id="top">
+		<div>FM Charity</div>
+		<div id="button" onclick="document.body.classList.add('ready'); setTimeout(() => {
+			document.getElementById('audio').play();
+		}, 2000);"></div>
+	</div>
+	<div id="bottom">
+		Powered by <a href="https://computerization.io" target="_blank">Computerization</a>.
+	</div>
+	<audio id="audio" autoplay loop>
+		<source src="assets/bgm.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	<div id="cover"></div>
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+		<defs>
+			<filter id="distortion">
+				<feTurbulence type="fractalNoise" baseFrequency="0.2" numOctaves="5" result="turbulence"></feTurbulence>
+				<feDisplacementMap in="SourceGraphic" in2="turbulence" scale="50"></feDisplacementMap>
+			</filter>
+		</defs>
+	</svg>
+</body>
+</html>
